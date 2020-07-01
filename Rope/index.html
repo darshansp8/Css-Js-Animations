@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="slider-container">
+            <div class="slider-left">
+                <div class="progress">
+                    <span class="progress-value"></span>
+                </div>
+            </div><!--     
+            --><div class="slider-right">
+                <div class="progress-right">
+                    <span class="progress-value">Done</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script type="text/javascript">
+
+        const sliderProgress = document.querySelector('.progress');
+        const rightProgress = document.querySelector('.progress-right')
+        const sliderLeft = document.querySelector('.slider-left');
+        const value = document.querySelector('.progress-value');
+
+        var width = 0;
+
+        function progress(){
+            width = sliderLeft.offsetWidth;
+            sliderProgress.setAttribute("style", "left :" +  width+ "px;");
+            
+            if(width === 0){
+                value.innerHTML = '';
+                rightProgress.setAttribute("style", "visiblity: hidden");
+            }
+            else if(width === 500){
+                sliderProgress.setAttribute("style", "display : none");
+                rightProgress.setAttribute("style", "visiblity: visible");
+            }
+            else{
+                value.innerHTML = Math.round((width*100)/500) + "%";
+            }
+        }
+
+        setInterval(progress, 100);
+
+    </script>   
+</body>
+</html>

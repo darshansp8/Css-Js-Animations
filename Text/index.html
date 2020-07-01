@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <p>Hello World!</p>
+    </div>
+
+    <script>
+        var speed =200;
+        var p = document.querySelector('p');
+        var delay = p.innerHTML.length + speed;
+        typeEffect(p, speed);
+
+
+
+        function typeEffect(ele, speed){
+            var text = ele.innerHTML;
+            ele.innerHTML = '';
+
+            var i = 0;
+            var timer = setInterval(function(){
+                if(i < text.length){
+                    ele.append(text.charAt(i));
+                    i++;
+                }
+                else{
+                    clearInterval(timer);
+                }
+            }, speed);
+        }
+
+    </script>
+</body>
+</html>

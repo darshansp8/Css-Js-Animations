@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Parallax</title>
+</head>
+<body>
+<header id="header">
+    <h1 id="text">Mumbai</h1>
+</header>
+<section id="section">
+
+    <h2>About</h2>
+
+    <div class="container">
+        <p class="title">Sanjay Gandhi National Park</p>
+        <img class="img" src="sgnp.jpg" alt="Sanjay Gandhi National Park">
+    </div>
+    <div class="container">
+        <p class="title">Marine Drive</p>
+        <img class="img" src="md.webp" alt="">
+    </div>
+    <div class="container">
+        <p class="title">Powai Lake</p>
+        <img class="img" src="pl.jpg" alt="">
+    </div>
+</section>
+
+    <script>
+        function onScroll(){
+
+
+        var header = document.getElementById('header');
+        var text = document.getElementById('text');
+        var section = document.getElementById('section');
+        var container = document.querySelector('.container');
+        var textPosition = container.getBoundingClientRect().top;
+        var screenPosition = window.innerHeight / 1.5;
+        console.log(screenPosition);
+
+        if(textPosition < screenPosition){
+                document.querySelectorAll('.container').forEach(function(el){
+                    el.classList.add('fade-in');
+                });
+
+            }
+
+
+        var value = window.scrollY;
+            text.style.top = value + 370 + 'px';
+            header.style.top = -value + 0.3 + 'px';
+            section.style.top = -value + 590 + 'px';
+            // header.setAttribute('style', 'transform: scale('+value * 3 +'px;)');
+
+
+        }
+
+        window.addEventListener('scroll', onScroll);
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="cursor"></div>
+    </section>
+    <script type="text/javascript">
+        
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', e => {
+            console.log(e);
+            cursor.setAttribute("style", "top: "+(e.pageY - 10)+ "px; left:"+(e.pageX - 10)+"px;");
+        });
+        document.addEventListener('click', () => {
+            cursor.classList.add('expand');
+
+            setTimeout(() => {
+                cursor.classList.remove('expand');
+            }, 500)
+        });
+    </script>
+</body>
+</html>
